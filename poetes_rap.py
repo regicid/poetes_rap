@@ -1,15 +1,9 @@
-from gliner import GLiNER
 import pandas as pd
 import re
 
 df = pd.read_csv("hf://datasets/regicid/lrfaf_v2/corpus.csv")
-model = GLiNER.from_pretrained("urchade/gliner_multi-v2.1")
 
-labels = ["poète","philosophe"]
 
-for i in range(10000):
-  print(model.predict_entities(str(df.lyrics.values[i]),labels))
-  
 f = open("/Users/b.de-courson/Downloads/poetes_rap.txt","r")
 a = f.read()
 poetes_names = a.split('\n')[:-1]
